@@ -4,7 +4,7 @@ import { useFirebase } from "../context/Firebase";
 
 import ProgressBar from "./ProgressBar";
 
-const SampleCard = () => {
+const SampleCard = (props) => {
     const firebase = useFirebase();
 
     const [books, setBooks] = useState([]);
