@@ -66,7 +66,7 @@ const List = () => {
                                 label={choice.name}
                                 checked={color === choice.color}
                                 onChange={() => setColor(choice.color)}
-                                className={`bg-${choice.color}-400 text-white rounded-full p-2 mr-2`}
+                                // className={`bg-${choice.color}-400 text-white rounded-full p-2 mr-2`}
 
                             />
                         ))}
