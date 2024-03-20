@@ -7,19 +7,21 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     onAuthStateChanged,
-} from "firebase/auth"
-
+    signOut
+} from "firebase/auth";
 import {
     getFirestore,
     collection,
     addDoc,
     getDocs,
     getDoc,
+    setDoc,
     doc,
     query,
     where,
 } from "firebase/firestore";
 
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const FirebaseContext = createContext(null);
 
@@ -33,69 +35,142 @@ const firebaseConfig = {
 };
 
 
-
 export const useFirebase = () => useContext(FirebaseContext);
 
 const firebaseApp = initializeApp(firebaseConfig);
-const firebaseAuth = getAuth(firebaseApp)
+const firebaseAuth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
-// const storage = getStorage(firebaseApp);
+const storage = getStorage(firebaseApp);
 
-
-const gooogleProvider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 
 export const FirebaseProvider = (props) => {
     const [user, setUser] = useState(null);
 
-
-
     useEffect(() => {
         onAuthStateChanged(firebaseAuth, (user) => {
-            if (user) {
-                setUser(user);
-            }
-            else {
-                setUser(null);
-            }
+            if (user) setUser(user);
+            else setUser(null);
         });
     }, []);
 
-    // console.log(user);
-    const signupUserWithEmailAndPassword = (email, password) => createUserWithEmailAndPassword(firebaseAuth, email, password);
+    const signupUserWithEmailAndPassword = (email, password) =>
+        createUserWithEmailAndPassword(firebaseAuth, email, password);
 
     const signinUserWithEmailAndPassword = (email, password) =>
         signInWithEmailAndPassword(firebaseAuth, email, password);
 
-    const signinWithGoogle = () => signInWithPopup(firebaseAuth, gooogleProvider)
+    const signinWithGoogle = () => signInWithPopup(firebaseAuth, googleProvider);
 
-    const handleCreateNewListing = async (name, isbn, price, owner, icon, color) => {
-        return await addDoc(collection(firestore, "books"), {
+    const handleCreateNewListing = async (name) => {
+        return await addDoc(collection(firestore, "users"), {
             name,
-            isbn,
-            price,
-            owner: user.uid,
-            icon,
-            color
+            userID: user.uid,
+            currencyID: 1,
+            totalincome: 0,
+            totalexpense: 0,
         });
     };
 
-    const listAllBooks = () => {
-        return getDocs(collection(firestore, "books"));
-      };
+    const handleNewUser = async (name, userId) => {
+        return await setDoc(doc(firestore, "users", userId), {
+            name: name,
+            userID: userId,
+            currencyID: 1,
+            totalincome: 0,
+            totalexpense: 0,
+        });
+    };
 
+    const handleNewCredit = async (name, left, completed, userId) => {
+
+
+        return await addDoc(collection(firestore, "users", userId, "credit"), {
+            name: name,
+            left: parseInt(left),
+            completed: parseInt(completed),
+        });
+    };
+
+
+    const listAllBooks = () => {
+        return getDocs(collection(firestore, "users"));
+    };
+
+
+    const listAllCredits = (userId) => {
+        return getDocs(collection(firestore, "users", userId, "credit"));
+    };
+
+    const getBookById = async (id) => {
+        const docRef = doc(firestore, "users", id);
+        const result = await getDoc(docRef);
+        return result;
+    };
+
+    const getImageURL = (path) => {
+        return getDownloadURL(ref(storage, path));
+    };
+
+    const placeOrder = async (bookId, qty) => {
+        const collectionRef = collection(firestore, "users", bookId, "orders");
+        const result = await addDoc(collectionRef, {
+            userID: user.uid,
+            userEmail: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+            qty: Number(qty),
+        });
+        return result;
+    };
+
+    const fetchMyBooks = async (userId) => {
+        const collectionRef = collection(firestore, "users");
+        const q = query(collectionRef, where("userID", "==", userId));
+
+        const result = await getDocs(q);
+        return result;
+    };
+
+    const logout = async () => {
+        try {
+            await signOut(firebaseAuth);
+            setUser(null);
+        } catch (error) {
+            console.error('Error logging out:', error.message);
+        }
+    };
+
+    const getOrders = async (bookId) => {
+        const collectionRef = collection(firestore, "users", bookId, "orders");
+        const result = await getDocs(collectionRef);
+        return result;
+    };
 
     const isLoggedIn = user ? true : false;
 
-    return <FirebaseContext.Provider
-        value={{
-            signupUserWithEmailAndPassword,
-            signinUserWithEmailAndPassword,
-            signinWithGoogle,
-            isLoggedIn,
-            handleCreateNewListing,
-            listAllBooks
-        }}>
-        {props.children}
-    </FirebaseContext.Provider>
-
+    return (
+        <FirebaseContext.Provider
+            value={{
+                signinWithGoogle,
+                signupUserWithEmailAndPassword,
+                signinUserWithEmailAndPassword,
+                handleCreateNewListing,
+                listAllBooks,
+                listAllCredits,
+                getImageURL,
+                getBookById,
+                placeOrder,
+                fetchMyBooks,
+                getOrders,
+                isLoggedIn,
+                user,
+                handleNewUser,
+                handleNewCredit,
+                logout
+            }}
+        >
+            {props.children}
+        </FirebaseContext.Provider>
+    );
 };

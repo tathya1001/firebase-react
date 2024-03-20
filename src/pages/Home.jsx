@@ -16,10 +16,21 @@ const HomePage = () => {
     const firebase = useFirebase();
 
     const [books, setBooks] = useState([]);
+    const [credits, setCredits] = useState([]);
 
     useEffect(() => {
         firebase.listAllBooks().then((books) => setBooks(books.docs));
     }, []);
+
+
+
+    useEffect(() => {
+        if (firebase.user) {
+            firebase.listAllCredits(firebase.user.uid).then((credit) => setCredits(credit.docs));
+        }
+    }, [firebase.user]);
+
+
 
 
     useEffect(() => {
@@ -62,6 +73,7 @@ const HomePage = () => {
 
         container.addEventListener("wheel", handleScroll);
 
+
         return () => {
             container.removeEventListener("wheel", handleScroll);
         };
@@ -87,6 +99,7 @@ const HomePage = () => {
     //     console.log(...book)
     // ))
 
+    // console.log(firebase.user.uid)
 
     return (
         <div className="container flex flex-col gap-6 ">
@@ -120,12 +133,20 @@ const HomePage = () => {
 
             <div className="credit-section flex gap-2 overflow-x-auto overflow-hidden ">
                 <AddButton></AddButton>
+                {credits.map((creds) => (
+                    <SampleCard
+                        key={creds.id}
+                        link={`/book/view/${creds.id}`}
+                        id={creds.id}
+                        {...creds.data()}
+                    />
+                ))}
+                {/* <SampleCard></SampleCard>
                 <SampleCard></SampleCard>
                 <SampleCard></SampleCard>
                 <SampleCard></SampleCard>
                 <SampleCard></SampleCard>
-                <SampleCard></SampleCard>
-                <SampleCard></SampleCard>
+                <SampleCard></SampleCard> */}
 
             </div>
 
