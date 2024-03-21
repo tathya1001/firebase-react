@@ -19,6 +19,7 @@ import {
     doc,
     query,
     where,
+    updateDoc,
 } from "firebase/firestore";
 
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -91,6 +92,30 @@ export const FirebaseProvider = (props) => {
             completed: parseInt(completed),
         });
     };
+
+    const handleCreditPay = async (creditId, completed, completedAdded, userId) => {
+        console.log("Credit response given");
+
+        await updateDoc(doc(firestore, "users", userId, "credit", creditId), {
+            completed: parseInt(completed) + parseInt(completedAdded),
+        });
+        console.log("Credit response updated successfully!");
+
+        window.location.reload(); // change this !important
+    };
+
+    const handleCreditAdd = async (creditId, left, addition, userId) => {
+        console.log("Credit added given");
+
+        await updateDoc(doc(firestore, "users", userId, "credit", creditId), {
+            left: parseInt(left) + parseInt(addition),
+        });
+        console.log("Credit response updated successfully!");
+
+        window.location.reload(); // change this !important
+    };
+
+
 
 
     const listAllBooks = () => {
@@ -167,6 +192,9 @@ export const FirebaseProvider = (props) => {
                 user,
                 handleNewUser,
                 handleNewCredit,
+                // handleCreditResponse,
+                handleCreditAdd,
+                handleCreditPay,
                 logout
             }}
         >

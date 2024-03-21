@@ -9,6 +9,19 @@ const SampleCard = (props) => {
 
     const [books, setBooks] = useState([]);
 
+    const handleAddClick = () => {
+        console.log(firebase.user.uid);
+        const creditAdded = prompt("Enter addition")
+        // Call the handleCreditResponse Firebase function here
+        firebase.handleCreditAdd(props.id, props.left, parseInt(creditAdded), firebase.user.uid);
+    };
+
+    const handlePayClick = () => {
+        console.log(firebase.user.uid);
+        const completedAdded = prompt("Enter payment")
+        // Call the handleCreditResponse Firebase function here
+        firebase.handleCreditPay(props.id, props.completed, parseInt(completedAdded), firebase.user.uid);
+    };
 
 
     return (
@@ -23,8 +36,8 @@ const SampleCard = (props) => {
 
 
             <div className="left-side flex flex-col justify-around">
-                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem]">Add</button>
-                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem]">Pay</button>
+                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem]" onClick={handleAddClick}>Add</button>
+                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem]" onClick={handlePayClick}>Pay</button>
             </div>
 
         </div>
