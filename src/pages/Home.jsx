@@ -5,6 +5,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 
 import "./HomePage.css";
 
+import Welcome from "../components/Welcome";
 import BookCard from "../components/Card";
 import SampleCard from "../components/SampleCard";
 import CategoryCard from "../components/CategoryCard";
@@ -17,6 +18,7 @@ const HomePage = () => {
 
     const [books, setBooks] = useState([]);
     const [credits, setCredits] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     useEffect(() => {
         firebase.listAllBooks().then((books) => setBooks(books.docs));
@@ -30,23 +32,27 @@ const HomePage = () => {
         }
     }, [firebase.user]);
 
-
-
-
     useEffect(() => {
-        const container = document.querySelector(".card-container");
+        if (firebase.user) {
+            firebase.listAllCategory(firebase.user.uid).then((category) => setCategories(category.docs));
+        }
+    }, [firebase.user]);
 
-        const handleScroll = (event) => {
-            container.scrollLeft += event.deltaY * 0.5; // Adjust the scrolling speed
-            event.preventDefault();
-        };
 
-        container.addEventListener("wheel", handleScroll);
+    // useEffect(() => {
+    //     const container = document.querySelector(".card-container");
 
-        return () => {
-            container.removeEventListener("wheel", handleScroll);
-        };
-    }, []);
+    //     const handleScroll = (event) => {
+    //         container.scrollLeft += event.deltaY * 0.5; // Adjust the scrolling speed
+    //         event.preventDefault();
+    //     };
+
+    //     container.addEventListener("wheel", handleScroll);
+
+    //     return () => {
+    //         container.removeEventListener("wheel", handleScroll);
+    //     };
+    // }, []);
 
     useEffect(() => {
         const container = document.querySelector(".credit-section");
@@ -94,44 +100,55 @@ const HomePage = () => {
         };
     }, []);
 
-    // books.map((book) => (
 
-    //     console.log(...book)
-    // ))
 
-    // console.log(firebase.user.uid)
+
+
+    const [userName, setUserName] = useState("");
+
+    useEffect(() => {
+        if (firebase.user) {
+            const fetchUserData = async () => {
+
+                const userData = await firebase.getUserData(firebase.user.uid);
+                if (userData) {
+                    setUserName(userData.name);
+                }
+
+            };
+
+            fetchUserData();
+        }
+    }, [firebase.user]);
+
+
+
+    // console.log(firebase.user)
 
     return (
-        <div className="container flex flex-col gap-6 ">
-            <div className="card-container flex gap-2 overflow-hidden overflow-x-auto">
-                {books.map((book) => (
-                    <BookCard
-                        key={book.id}
-                        link={`/book/view/${book.id}`}
-                        id={book.id}
-                        {...book.data()}
+        <div className="container flex flex-col gap-0 font-[Rubik]">
+            <Welcome name={userName}></Welcome>
+
+            {/* <div className="card-container flex gap-2 mt-1 mb-2 overflow-hidden overflow-x-auto">
+            </div> */}
+
+            <h3 className="font-normal">Categories</h3>
+
+            <div className="category-section flex gap-2 mt-1 mb-2 overflow-x-auto overflow-hidden ">
+                <AddButton></AddButton>
+                {categories.map((cate) => (
+                    <CategoryCard
+                        key={cate.id}
+                        link={`/book/view/${cate.id}`}
+                        id={cate.id}
+                        {...cate.data()}
                     />
                 ))}
             </div>
 
+            <h3 className="font-normal">Credit</h3>
 
-
-            <div className="category-section flex gap-2 overflow-x-auto overflow-hidden ">
-                <AddButton></AddButton>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-                <CategoryCard></CategoryCard>
-
-            </div>
-
-            <div className="credit-section flex gap-2 overflow-x-auto overflow-hidden ">
+            <div className="credit-section flex gap-2 mt-1 mb-2 overflow-x-auto overflow-hidden ">
                 <AddButton></AddButton>
                 {credits.map((creds) => (
                     <SampleCard
@@ -141,14 +158,10 @@ const HomePage = () => {
                         {...creds.data()}
                     />
                 ))}
-                {/* <SampleCard></SampleCard>
-                <SampleCard></SampleCard>
-                <SampleCard></SampleCard>
-                <SampleCard></SampleCard>
-                <SampleCard></SampleCard>
-                <SampleCard></SampleCard> */}
 
             </div>
+
+            <h3 className="font-normal">Debit</h3>
 
             <div className="debit-section flex gap-2 overflow-x-auto overflow-hidden ">
                 <AddButton></AddButton>
@@ -160,8 +173,6 @@ const HomePage = () => {
                 <SampleCard></SampleCard>
 
             </div>
-
-            <div></div>
         </div>
     );
 };

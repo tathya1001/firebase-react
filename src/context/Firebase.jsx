@@ -93,6 +93,18 @@ export const FirebaseProvider = (props) => {
         });
     };
 
+    const handleNewCategory = async (name, iconid, colorid, userId) => {
+
+
+        return await addDoc(collection(firestore, "users", userId, "category"), {
+            name: name,
+            iconid: parseInt(iconid),
+            colorid: parseInt(colorid),
+        });
+    };
+
+
+
     const handleCreditPay = async (creditId, completed, completedAdded, userId) => {
         console.log("Credit response given");
 
@@ -123,8 +135,28 @@ export const FirebaseProvider = (props) => {
     };
 
 
+    const getUserData = async (userId) => {
+        try {
+            const userDoc = await getDoc(doc(firestore, "users", userId));
+            return userDoc.data();
+
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            // return null;
+        }
+    };
+
+
+
+
+
+
     const listAllCredits = (userId) => {
         return getDocs(collection(firestore, "users", userId, "credit"));
+    };
+
+    const listAllCategory = (userId) => {
+        return getDocs(collection(firestore, "users", userId, "category"));
     };
 
     const getBookById = async (id) => {
@@ -183,6 +215,7 @@ export const FirebaseProvider = (props) => {
                 handleCreateNewListing,
                 listAllBooks,
                 listAllCredits,
+                listAllCategory,
                 getImageURL,
                 getBookById,
                 placeOrder,
@@ -192,10 +225,12 @@ export const FirebaseProvider = (props) => {
                 user,
                 handleNewUser,
                 handleNewCredit,
+                handleNewCategory,
                 // handleCreditResponse,
                 handleCreditAdd,
                 handleCreditPay,
-                logout
+                logout,
+                getUserData
             }}
         >
             {props.children}

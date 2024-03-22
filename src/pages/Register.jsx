@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+
+import { CFormInput } from '@coreui/react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 
 import { useFirebase } from "../context/Firebase";
 
@@ -43,35 +48,54 @@ const Register = () => {
         <div className="container mt-5">
             <Form onSubmit={handleSubmit}>
 
-                <Form.Group className="mb-3" controlId="formBasicName">
-                    <Form.Label>Name</Form.Label>
+                <FloatingLabel
+                    controlId="forName"
+                    label="Name"
+                    className="mb-3"
+                >
                     <Form.Control
+                        type="text"
                         onChange={(e) => setName(e.target.value)}
                         value={name}
-                        type="text"
                         placeholder="Enter Name"
                     />
-                </Form.Group>
+                </FloatingLabel>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control
-                        onChange={(e) => setEmail(e.target.value)}
+                {/* 
+                <FloatingLabel
+                    controlId="forEmail"
+                    label="Email"
+                    className="mb-3"
+                >
+                    <Form.Control type="email" onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        type="email"
-                        placeholder="Enter email"
-                    />
-                </Form.Group>
+                        placeholder="Enter Email" />
+                </FloatingLabel> */}
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        onChange={(e) => setPassword(e.target.value)}
+
+                <FloatingLabel
+                    controlId="forPassword"
+                    label="Password"
+                    className="mb-3"
+                >
+                    <Form.Control type="password" onChange={(e) => setPassword(e.target.value)}
                         value={password}
-                        type="password"
-                        placeholder="Password"
-                    />
-                </Form.Group>
+                        placeholder="Enter Password" />
+                </FloatingLabel>
+
+                {/* <CFormInput type="email" id="floatingInput" floatingClassName="mb-3" floatingLabel="Email address" placeholder="name@example.com" />
+                <CFormInput type="password" id="floatingPassword" floatingLabel="Password" placeholder="Password" /> */}
+
+
+                <input type="text"  placeholder="Type here" className="input input-bordered w-full max-w-xs text-white" />
+
+
+                <div className="relative">
+                    <input onChange={(e) => setEmail(e.target.value)} type="text" id="floating_outlined" className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                    <label for="floating_outlined" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Floating outlined</label>
+                </div>
+
+
 
                 <Button variant="primary" type="submit">
                     Create Account

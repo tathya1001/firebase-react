@@ -10,10 +10,13 @@ import Login from './pages/Login.jsx'
 import List from './pages/List.jsx'
 import Home from './pages/Home.jsx'
 import Credit from './pages/Credit.jsx'
+// import Category from './pages/Category.jsx'
+import FormNew from './pages/FormNew.jsx'
 
 //css
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
+import Category from './pages/Category.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +30,8 @@ function App() {
         <Route path="/login" element={<Login></Login>} />
         <Route path="/list" element={<List></List>} />
         <Route path="/create/credit" element={<Credit/>} />
+        <Route path="/create/category" element={<Category/>} />
+        <Route path="/form" element={<FormNew/>} />
       </Routes>
     </>
   )
