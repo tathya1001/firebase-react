@@ -96,6 +96,19 @@ export const FirebaseProvider = (props) => {
     const handleNewCategory = async (name, iconid, colorid, userId) => {
 
 
+        return await addDoc(collection(firestore, "users", userId, "log"), {
+            name: name,
+            categoryid: 1,
+            expense: 450,
+            date: 2,
+            month: 3,
+            year: 2003,
+        });
+    };
+
+    const handleNewLog = async (name, categoryid, colorid, userId) => {
+
+
         return await addDoc(collection(firestore, "users", userId, "category"), {
             name: name,
             iconid: parseInt(iconid),
@@ -159,6 +172,10 @@ export const FirebaseProvider = (props) => {
         return getDocs(collection(firestore, "users", userId, "category"));
     };
 
+    const listAllLogs = (userId) => {
+        return getDocs(collection(firestore, "users", userId, "log"));
+    };
+
     const getBookById = async (id) => {
         const docRef = doc(firestore, "users", id);
         const result = await getDoc(docRef);
@@ -216,6 +233,7 @@ export const FirebaseProvider = (props) => {
                 listAllBooks,
                 listAllCredits,
                 listAllCategory,
+                listAllLogs,
                 getImageURL,
                 getBookById,
                 placeOrder,

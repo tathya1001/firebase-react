@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import CardGroup from "react-bootstrap/CardGroup";
-// import HScrollGrid from "react-horizontal-scroll-grid"
 
 
 import "./HomePage.css";
@@ -10,8 +9,11 @@ import BookCard from "../components/Card";
 import SampleCard from "../components/SampleCard";
 import CategoryCard from "../components/CategoryCard";
 import AddButton from "../components/AddButton";
+import TotalExpense from "../components/TotalExpense";
+import TotalIncome from "../components/TotalIncome";
 
 import { useFirebase } from "../context/Firebase";
+import HeroPills from "../components/HeroPillExpense";
 
 const HomePage = () => {
     const firebase = useFirebase();
@@ -19,12 +21,18 @@ const HomePage = () => {
     const [books, setBooks] = useState([]);
     const [credits, setCredits] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [logs, setLogs] = useState([]);
+    const [totalTransactions, setTotalTransactions] = useState(0);
+    const [totalExpense, setTotalExpense] = useState(0);
+    const [totalIncome, setTotalIncome] = useState(0);
+    // const [totalTransactions, setTotalTransactions] = useState(0);
 
     useEffect(() => {
         firebase.listAllBooks().then((books) => setBooks(books.docs));
     }, []);
 
 
+    //listing
 
     useEffect(() => {
         if (firebase.user) {
@@ -38,22 +46,35 @@ const HomePage = () => {
         }
     }, [firebase.user]);
 
+    useEffect(() => {
+        if (firebase.user) {
+            const fetchLogs = async () => {
+                const logsData = await firebase.listAllLogs(firebase.user.uid);
+                setLogs(logsData.docs);
 
-    // useEffect(() => {
-    //     const container = document.querySelector(".card-container");
+                // Calculate total transaction value
+                let total = 0;
+                logsData.docs.forEach((log) => {
+                    if (log.data().categoryid == 1) {
+                        total += log.data().transaction;
+                    }
+                });
+                setTotalIncome(total);
 
-    //     const handleScroll = (event) => {
-    //         container.scrollLeft += event.deltaY * 0.5; // Adjust the scrolling speed
-    //         event.preventDefault();
-    //     };
+                total = 0;
+                logsData.docs.forEach((log) => {
+                    if (log.data().categoryid != 1) {
+                        total += log.data().transaction;
+                    }
+                });
+                setTotalExpense(total);
+            };
 
-    //     container.addEventListener("wheel", handleScroll);
+            fetchLogs();
+        }
+    }, [firebase.user]);
 
-    //     return () => {
-    //         container.removeEventListener("wheel", handleScroll);
-    //     };
-    // }, []);
-
+    //for horizontal scrolling
     useEffect(() => {
         const container = document.querySelector(".credit-section");
 
@@ -102,7 +123,7 @@ const HomePage = () => {
 
 
 
-
+    //get user data
 
     const [userName, setUserName] = useState("");
 
@@ -123,14 +144,34 @@ const HomePage = () => {
 
 
 
+
+
+
+
+
+
     // console.log(firebase.user)
 
     return (
         <div className="container flex flex-col gap-0 font-[Rubik]">
             <Welcome name={userName}></Welcome>
 
-            {/* <div className="card-container flex gap-2 mt-1 mb-2 overflow-hidden overflow-x-auto">
-            </div> */}
+            {/* {logs.map((log) => (
+                <HeroPills
+                    key={log.id}
+                    link={`/book/view/${log.id}`}
+                    id={log.id}
+                    {...log.data()}
+                />
+            ))} */}
+
+            <div className="flex flex-row gap-2">
+                <TotalExpense trans={totalExpense}></TotalExpense>
+                <TotalIncome trans={totalIncome}></TotalIncome>
+            </div>
+
+
+
 
             <h3 className="font-normal">Categories</h3>
 
