@@ -96,23 +96,24 @@ export const FirebaseProvider = (props) => {
     const handleNewCategory = async (name, iconid, colorid, userId) => {
 
 
-        return await addDoc(collection(firestore, "users", userId, "log"), {
+        return await addDoc(collection(firestore, "users", userId, "category"), {
             name: name,
-            categoryid: 1,
-            expense: 450,
-            date: 2,
-            month: 3,
-            year: 2003,
+            iconid: iconid,
+            colorid: colorid,
+            expense: 0,
         });
     };
 
-    const handleNewLog = async (name, categoryid, colorid, userId) => {
+    const handleNewLog = async (logName, categoryId, expense, day, month, year, userId) => {
 
 
-        return await addDoc(collection(firestore, "users", userId, "category"), {
-            name: name,
-            iconid: parseInt(iconid),
-            colorid: parseInt(colorid),
+        return await addDoc(collection(firestore, "users", userId, "log"), {
+            name: logName,
+            categoryid: categoryId,
+            transaction: expense,
+            day: parseInt(day),
+            month: parseInt(month),
+            year: parseInt(year)
         });
     };
 
@@ -152,6 +153,30 @@ export const FirebaseProvider = (props) => {
         try {
             const userDoc = await getDoc(doc(firestore, "users", userId));
             return userDoc.data();
+
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            // return null;
+        }
+    };
+
+    const getCategoryData = async (userId, categoryId) => {
+        try {
+            const userDoc = await getDoc(doc(firestore, "users", userId, "category", categoryId));
+            return userDoc.data();
+
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            // return null;
+        }
+    };
+
+    const setCategoryData = async (expense, userId, categoryId) => {
+        try {
+            const userDoc = await updateDoc(doc(firestore, "users", userId, "category", categoryId), {
+                expense : parseInt(expense),
+            });
+            // return userDoc.data();
 
         } catch (error) {
             console.error("Error fetching user data:", error);
@@ -244,11 +269,14 @@ export const FirebaseProvider = (props) => {
                 handleNewUser,
                 handleNewCredit,
                 handleNewCategory,
+                handleNewLog,
                 // handleCreditResponse,
                 handleCreditAdd,
                 handleCreditPay,
                 logout,
-                getUserData
+                getUserData,
+                getCategoryData,
+                setCategoryData
             }}
         >
             {props.children}

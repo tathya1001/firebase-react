@@ -8,6 +8,7 @@ import Welcome from "../components/Welcome";
 import BookCard from "../components/Card";
 import SampleCard from "../components/SampleCard";
 import CategoryCard from "../components/CategoryCard";
+import LogCard from "../components/LogCard";
 import AddButton from "../components/AddButton";
 import TotalExpense from "../components/TotalExpense";
 import TotalIncome from "../components/TotalIncome";
@@ -56,7 +57,7 @@ const HomePage = () => {
                 let total = 0;
                 logsData.docs.forEach((log) => {
                     if (log.data().categoryid == 1) {
-                        total += log.data().transaction;
+                        total += parseInt(log.data().transaction);
                     }
                 });
                 setTotalIncome(total);
@@ -64,7 +65,7 @@ const HomePage = () => {
                 total = 0;
                 logsData.docs.forEach((log) => {
                     if (log.data().categoryid != 1) {
-                        total += log.data().transaction;
+                        total += parseInt(log.data().transaction);
                     }
                 });
                 setTotalExpense(total);
@@ -156,14 +157,14 @@ const HomePage = () => {
         <div className="container flex flex-col gap-0 font-[Rubik]">
             <Welcome name={userName}></Welcome>
 
-            {/* {logs.map((log) => (
-                <HeroPills
+            {logs.map((log) => (
+                <LogCard
                     key={log.id}
                     link={`/book/view/${log.id}`}
                     id={log.id}
                     {...log.data()}
                 />
-            ))} */}
+            ))}
 
             <div className="flex flex-row gap-2">
                 <TotalExpense trans={totalExpense}></TotalExpense>

@@ -40,7 +40,7 @@ const CategoryCard = (props) => {
             <div className="bottom-side flex flex-col justify-between text-white">
 
                 <span className="font-regular text-2xl">{props.name}</span>
-                <span className="font-semibold text-4xl">${props.colorid}</span>
+                <span className="font-semibold text-4xl">${props.expense}</span>
             </div>
 
 

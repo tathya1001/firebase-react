@@ -28,6 +28,7 @@ const MyNavbar = () => {
           <Nav.Link href="/book/orders">Orders</Nav.Link>
           <Nav.Link href="/create/credit">Credit</Nav.Link>
           <Nav.Link href="/create/category">Category</Nav.Link>
+          <Nav.Link href="/create/log">Log</Nav.Link>
           <Nav.Link href="/form">Form</Nav.Link>
           <div className="logout-button">
             <Button variant="danger" onClick={handleLogout}>

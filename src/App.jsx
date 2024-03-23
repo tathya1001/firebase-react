@@ -17,6 +17,7 @@ import FormNew from './pages/FormNew.jsx'
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 import Category from './pages/Category.jsx';
+import Log from './pages/Log.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,7 @@ function App() {
         <Route path="/list" element={<List></List>} />
         <Route path="/create/credit" element={<Credit/>} />
         <Route path="/create/category" element={<Category/>} />
+        <Route path="/create/log" element={<Log/>} />
         <Route path="/form" element={<FormNew/>} />
       </Routes>
     </>
