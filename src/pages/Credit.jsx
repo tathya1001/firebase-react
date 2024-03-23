@@ -20,7 +20,7 @@ function Credit() {
 
     return (
         <div className='bg-slate-900'>
-            <div className='container flex flex-col justify-center items-center h-screen font-[Rubik]' onSubmit={handleSubmit}>
+            <div className='container flex flex-col justify-center items-center h-svh font-[Rubik]' onSubmit={handleSubmit}>
                 <h2 className='text-white mb-4'>Add Credit</h2>
                 <Form className='columns-md flex-col space-y-3 '>
 
