@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <MyNavbar />
+      {/* <MyNavbar /> */}
       <Routes>
         <Route path="/" element={<Home></Home>} />
         <Route path="/register" element={<Register></Register>} />

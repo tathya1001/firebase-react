@@ -73,11 +73,11 @@ export const FirebaseProvider = (props) => {
         });
     };
 
-    const handleNewUser = async (name, userId) => {
+    const handleNewUser = async (name, userId, currency) => {
         return await setDoc(doc(firestore, "users", userId), {
             name: name,
             userID: userId,
-            currencyID: 1,
+            currency: currency,
             totalincome: 0,
             totalexpense: 0,
         });
@@ -174,7 +174,7 @@ export const FirebaseProvider = (props) => {
     const setCategoryData = async (expense, userId, categoryId) => {
         try {
             const userDoc = await updateDoc(doc(firestore, "users", userId, "category", categoryId), {
-                expense : parseInt(expense),
+                expense: parseInt(expense),
             });
             // return userDoc.data();
 
