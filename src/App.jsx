@@ -7,9 +7,11 @@ import MyNavbar from "./components/MyNavbar.jsx";
 //pages
 // import Register from './pages/Register.jsx'
 import Register from './pages/RegisterNew.jsx'
-import Login from './pages/Login.jsx'
+// import Login from './pages/Login.jsx'
+import Login from './pages/LoginNew.jsx'
 import List from './pages/List.jsx'
-import Home from './pages/Home.jsx'
+// import Home from './pages/Home.jsx'
+import Home from './pages/HomeNew.jsx'
 import Credit from './pages/Credit.jsx'
 // import Category from './pages/Category.jsx'
 import FormNew from './pages/FormNew.jsx'

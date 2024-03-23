@@ -49,7 +49,7 @@ function Log() {
 
     return (
         <div className='container'>
-            <h2>Add Category</h2>
+            <h2>Add Log</h2>
             <Form onSubmit={handleSubmit}>
 
                 <Form.Group controlId="crediterName">
