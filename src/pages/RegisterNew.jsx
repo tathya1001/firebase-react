@@ -76,7 +76,6 @@ function Register() {
 
 
                     <div>
-
                         <label htmlFor="program-name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Currency</label>
                         <select id="program-name" className="w-100 border bg-transparent border-gray-300 text-gray-900 text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={(e) => setCurrency(e.target.value)}>
                             <option value="INR" className='text-white bg-slate-600'>₹ INR Indian Rupee</option>

@@ -20,7 +20,7 @@ import FormNew from './pages/FormNew.jsx'
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
 import Category from './pages/Category.jsx';
-import Log from './pages/Log.jsx';
+import Log from './pages/LogNew.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
