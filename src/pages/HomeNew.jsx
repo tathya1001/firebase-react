@@ -164,7 +164,7 @@ const Home = () => {
 
     return (
         <>
-            <div className="h-svh w-full flex flex-col container font-[Rubik]">
+            <div className="w-full py-3 flex flex-col container font-[Rubik]">
 
                 <Welcome name={userName}></Welcome>
 
