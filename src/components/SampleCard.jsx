@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase";
 import ProgressBar from "./ProgressBar";
 
+import CurrencyComponent from "./CurrencyComponent.jsx";
 const SampleCard = (props) => {
     const firebase = useFirebase();
     const [isPayPopupOpen, setIsPayPopupOpen] = useState(false);
@@ -43,6 +44,25 @@ const SampleCard = (props) => {
         setPaymentInput("");
     };
 
+
+
+    const [currency, setCurrency] = useState('');
+
+    useEffect(() => {
+        if (firebase.user) {
+            const fetchUserData = async () => {
+
+                const userData = await firebase.getUserData(firebase.user.uid);
+                if (userData) {
+                    setCurrency(userData.currencyID);
+                }
+
+            };
+
+            fetchUserData();
+        }
+    }, [firebase.user]);
+
     return (
 
 
@@ -50,7 +70,7 @@ const SampleCard = (props) => {
             <div className="right-side w-32 text-white text-[1.35rem] flex flex-col justify-between">
                 <span className="truncate">{props.name}</span>
                 <ProgressBar maxValue={props.left} completedValue={props.completed}></ProgressBar>
-                <span className="font-medium">${props.left - props.completed}</span>
+                <span className="font-medium"><CurrencyComponent />{props.left - props.completed}</span>
             </div>
             <div className="left-side flex flex-col justify-around">
                 <button className="w-20 h-8 bg-white rounded-md text-[1.15rem]" onClick={handleAddClick}>Add</button>

@@ -10,7 +10,7 @@ import SampleCard from "../components/SampleCard";
 import CategoryCard from "../components/CategoryCard";
 import LogCard from "../components/LogCard";
 import AddButton from "../components/AddButton";
-import TotalExpense from "../components/TotalExpense";
+import TotalExpense from "../components/HeroCard";
 import TotalIncome from "../components/TotalIncome";
 
 import { useFirebase } from "../context/Firebase";
@@ -144,12 +144,25 @@ const HomePage = () => {
     }, [firebase.user]);
 
 
+    const [currency, setCurrency] = useState('');
+    useEffect(() => {
+        if (firebase.user) {
+            const fetchUserData = async () => {
+
+                const userData = await firebase.getUserData(firebase.user.uid);
+                if (userData) {
+                    setUserName(userData.name);
+                }
+
+            };
+
+            fetchUserData();
+        }
+    }, [firebase.user]);
 
 
 
-
-
-
+    // console.log(userData);
 
     // console.log(firebase.user)
 

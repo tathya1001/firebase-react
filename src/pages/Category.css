@@ -1,0 +1,9 @@
+.radio-button:checked+.radio-tile {
+    background-color: red;
+    /* Change background color to red when radio button is checked */
+}
+
+.radio-tile {
+    background-color: black;
+    /* Change background color to red when radio button is checked */
+}

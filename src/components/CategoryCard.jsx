@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useFirebase } from "../context/Firebase";
 
+import CurrencyComponent from "./CurrencyComponent.jsx";
 import CustomIcon from "./CustomIcon.jsx"
 
 const CategoryCard = (props) => {
@@ -25,7 +26,22 @@ const CategoryCard = (props) => {
             break;
 
     }
+    const [currency, setCurrency] = useState('');
 
+    useEffect(() => {
+        if (firebase.user) {
+            const fetchUserData = async () => {
+
+                const userData = await firebase.getUserData(firebase.user.uid);
+                if (userData) {
+                    setCurrency(userData.currencyID);
+                }
+
+            };
+
+            fetchUserData();
+        }
+    }, [firebase.user]);
 
 
     return (
@@ -40,7 +56,7 @@ const CategoryCard = (props) => {
             <div className="bottom-side flex flex-col justify-between text-white">
 
                 <span className="font-regular text-2xl">{props.name}</span>
-                <span className="font-semibold text-4xl">${props.expense}</span>
+                <span className="font-semibold text-4xl"><CurrencyComponent />{props.expense}</span>
             </div>
 
 

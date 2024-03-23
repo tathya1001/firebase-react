@@ -98,8 +98,8 @@ export const FirebaseProvider = (props) => {
 
         return await addDoc(collection(firestore, "users", userId, "category"), {
             name: name,
-            iconid: iconid,
-            colorid: colorid,
+            iconid: parseInt(iconid),
+            colorid: parseInt(colorid),
             expense: 0,
         });
     };
