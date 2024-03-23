@@ -163,7 +163,7 @@ const Home = () => {
     }, [firebase.user]);
 
     return (
-        <>
+        <div className="bg-slate-900">
             <div className="w-full py-3 flex flex-col container font-[Rubik]">
 
                 <Welcome name={userName}></Welcome>
@@ -175,7 +175,7 @@ const Home = () => {
 
                 </div>
 
-                <h3 className="font-normal mt-2">Categories</h3>
+                <h3 className="font-normal mt-2 text-white">Categories</h3>
 
                 <div className="category-section space-x-2 flex overflow-x-auto overflow-hidden">
                     <AddButton link="/create/category"></AddButton>
@@ -189,7 +189,7 @@ const Home = () => {
                     ))}
                 </div>
 
-                <h3 className="font-normal mt-2">Credit</h3>
+                <h3 className="font-normal mt-2 text-white">Credit</h3>
 
                 <div className="credit-section space-x-2 flex overflow-x-auto overflow-hidden">
                     <AddButton link="/create/credit"></AddButton>
@@ -203,7 +203,7 @@ const Home = () => {
                     ))}
                 </div>
 
-                <h3 className="font-normal mt-2">Debit</h3>
+                <h3 className="font-normal mt-2 text-white">Debit</h3>
 
                 <div className="debit-section space-x-2 flex overflow-x-auto overflow-hidden">
                     <AddButton link="/create/debit"></AddButton>
@@ -218,7 +218,7 @@ const Home = () => {
                 </div>
 
             </div>
-        </>
+        </div>
     );
 };
 

@@ -13,8 +13,8 @@ function Welcome(props) {
 
     return (
         <div className='flex flex-col gap-0 font-[Rubik] mt-1 mb-2'>
-            <span className='text-3xl'>Good Morning,</span>
-            <span className='text-5xl font-semibold'>{props.name}</span>
+            <span className='text-3xl text-white'>Good Morning,</span>
+            <span className='text-5xl font-semibold text-white'>{props.name}</span>
         </div>
     );
 }

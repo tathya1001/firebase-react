@@ -73,8 +73,8 @@ const SampleCard = (props) => {
                 <span className="font-medium"><CurrencyComponent />{props.left - props.completed}</span>
             </div>
             <div className="left-side flex flex-col justify-around">
-                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem]" onClick={handleAddClick}>Add</button>
-                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem]" onClick={handlePayClick}>Pay</button>
+                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem] text-black" onClick={handleAddClick}>Add</button>
+                <button className="w-20 h-8 bg-white rounded-md text-[1.15rem] text-black" onClick={handlePayClick}>Pay</button>
             </div>
 
             {isAddPopupOpen && (
