@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useFirebase } from '../context/Firebase';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { getAuth } from 'firebase/auth'; // Import getAuth
-import { onAuthStateChanged } from 'firebase/auth'; // Import onAuthStateChanged
+import { getAuth } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
+import NavbarNew from '../components/NavbarNew';
 
 function Credit() {
     const firebase = useFirebase();
@@ -19,8 +20,12 @@ function Credit() {
     };
 
     return (
-        <div className='bg-slate-900'>
-            <div className='container flex flex-col justify-center items-center h-svh font-[Rubik]' onSubmit={handleSubmit}>
+        <div className='bg-slate-900 h-screen'>
+
+            <NavbarNew></NavbarNew>
+
+
+            <div className='container flex flex-col justify-center items-center font-[Rubik]' onSubmit={handleSubmit}>
                 <h2 className='text-white mb-4'>Add Credit</h2>
                 <Form className='columns-md flex-col space-y-3 '>
 

@@ -22,6 +22,7 @@ import './App.css'
 // import Category from './pages/Category.jsx';
 import Category from './pages/CategoryNew.jsx';
 import Log from './pages/LogNew.jsx';
+import Income from './pages/Income.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,6 +38,7 @@ function App() {
         <Route path="/create/credit" element={<Credit/>} />
         <Route path="/create/category" element={<Category/>} />
         <Route path="/create/log" element={<Log/>} />
+        <Route path="/create/income" element={<Income/>} />
         <Route path="/form" element={<FormNew/>} />
       </Routes>
     </>

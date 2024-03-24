@@ -10,6 +10,7 @@ import { Radio } from "@material-tailwind/react";
 
 import './Category.css';
 import CustomIcon from '../components/CustomIcon';
+import NavbarNew from '../components/NavbarNew';
 
 
 function Category() {
@@ -21,9 +22,17 @@ function Category() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const forCreatingCategory = await firebase.handleNewCategory(categoryName, iconId, colorId, firebase.user.uid);
-        console.log("Category added");
+        try {
+            const forCreatingCategory = await firebase.handleNewCategory(categoryName, iconId, colorId, firebase.user.uid);
+            alert("Category added");
+        } catch (error) {
+            console.error("Error adding category:", error.message);
+            alert("Failed to add category. Please try again.");
+        }
     };
+
+
+
 
     const handleRadioChange = (e) => {
         console.log("Selected Radio Value:", iconId);
@@ -31,9 +40,11 @@ function Category() {
 
 
     return (
-        <div className='bg-slate-900'>
+        <div className='bg-slate-900 h-full sm:h-screen'>
 
-            <div className='container flex flex-col justify-center items-center font-[Rubik] h-full sm:h-screen' onSubmit={handleSubmit}>
+            <NavbarNew></NavbarNew>
+
+            <div className='container flex flex-col justify-center items-center font-[Rubik] ' onSubmit={handleSubmit}>
 
                 <h2 className='text-white mb-4'>Create Category</h2>
 
