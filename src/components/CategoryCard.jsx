@@ -16,16 +16,35 @@ const CategoryCard = (props) => {
     switch (option) {
 
         case 1:
-            colorCode = "#FF0000";
+            colorCode = "#FD2741";
             break;
         case 2:
-            colorCode = "#00FF00";
+            colorCode = "#458FFF";
+            break;
+        case 3:
+            colorCode = "#FFA800";
+            break;
+        case 4:
+            colorCode = "#48BB45";
+            break;
+        case 5:
+            colorCode = "#BC58EB";
+            break;
+        case 6:
+            colorCode = "#F460C2";
+            break;
+        case 7:
+            colorCode = "#FF810D";
             break;
         default:
-            colorCode = "#0F00F0";
+            colorCode = "#858585";
             break;
 
     }
+
+
+
+
     const [currency, setCurrency] = useState('');
 
     useEffect(() => {

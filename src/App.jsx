@@ -19,7 +19,8 @@ import FormNew from './pages/FormNew.jsx'
 //css
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css'
-import Category from './pages/Category.jsx';
+// import Category from './pages/Category.jsx';
+import Category from './pages/CategoryNew.jsx';
 import Log from './pages/LogNew.jsx';
 
 function App() {

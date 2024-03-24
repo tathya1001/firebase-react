@@ -163,7 +163,7 @@ const Home = () => {
     }, [firebase.user]);
 
     return (
-        <div className="bg-[#05051f]">
+        <div className="bg-[#05051f] h-screen md:h-screen">
             <div className="w-full py-3 flex flex-col container font-[Rubik]">
 
                 <Welcome name={userName}></Welcome>
