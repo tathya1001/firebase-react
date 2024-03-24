@@ -81,7 +81,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={4} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={4}></CustomIcon>
@@ -91,7 +91,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={5} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={5}></CustomIcon>
@@ -101,7 +101,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={6} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={6}></CustomIcon>
@@ -111,7 +111,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={7} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={7}></CustomIcon>
@@ -121,7 +121,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={8} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={8}></CustomIcon>
@@ -131,7 +131,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={9} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={9}></CustomIcon>
@@ -141,7 +141,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={10} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={10}></CustomIcon>
@@ -151,7 +151,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={11} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={11}></CustomIcon>
@@ -161,7 +161,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={12} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={12}></CustomIcon>
@@ -171,7 +171,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={13} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={13}></CustomIcon>
@@ -181,7 +181,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={14} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={14}></CustomIcon>
@@ -191,7 +191,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={15} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={15}></CustomIcon>
@@ -201,7 +201,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={16} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={16}></CustomIcon>
@@ -211,7 +211,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={17} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={17}></CustomIcon>
@@ -221,7 +221,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={18} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={18}></CustomIcon>
@@ -231,7 +231,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={19} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={19}></CustomIcon>
@@ -241,7 +241,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={20} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={20}></CustomIcon>
@@ -253,7 +253,7 @@ function Category() {
 
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={21} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={21}></CustomIcon>
@@ -263,7 +263,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={22} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={22}></CustomIcon>
@@ -273,7 +273,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={23} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={23}></CustomIcon>
@@ -283,7 +283,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={24} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={24}></CustomIcon>
@@ -293,7 +293,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={25} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={25}></CustomIcon>
@@ -303,7 +303,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={26} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={26}></CustomIcon>
@@ -313,7 +313,7 @@ function Category() {
                             </div>
 
                             <div className="input-container h-12 w-12 m-2 relative">
-                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={1} />
+                                <input id="walk" className="radio-button opacity-0 absolute top-0 left-0 h-full w-full cursor-pointer " type="radio" name="radio" value={27} />
                                 <div className="radio-tile flex flex-col items-center justify-center w-full h-full rounded-full p-4 transition-transform ">
                                     <div className='w-6 fill-black'>
                                         <CustomIcon icon={27}></CustomIcon>
