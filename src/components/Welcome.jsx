@@ -28,7 +28,7 @@ function Welcome(props) {
     else if (17 <= hours && hours < 22) {
         hourOfDay = "Evening";
     }
-    else if (22 <= hours && hours < 5) {
+    else if ((22 <= hours && hours < 24) || hours < 5) {
         hourOfDay = "Night";
     }
 
