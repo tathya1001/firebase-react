@@ -103,7 +103,7 @@ const LogCard = (props) => {
 
         ((props.categoryid != 1) &&
 
-            <div className="min-h-16 max-h-16 min-w-80 flex flex-row justify-between items-center px-3 py-1 rounded-[0.75rem] font-[Rubik] box-border text-white" style={{ backgroundColor: colorCode }}>
+            <div className="min-h-16 max-h-16 flex flex-row justify-between items-center px-3 py-1 rounded-[0.75rem] font-[Rubik] box-border text-white" style={{ backgroundColor: colorCode }}>
                 <div className="w-72 flex flex-row items-center gap-3">
                     <div className="w-8">
                         <CustomIcon icon={categoryDetails.iconid}></CustomIcon>

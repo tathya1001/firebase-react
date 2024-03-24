@@ -163,23 +163,23 @@ const Home = () => {
     }, [firebase.user]);
 
     return (
-        <div className="bg-[#05051f] h-full lg:h-screen w-screen">
-            <div className="p-8 w-full flex flex-col lg:flex-row justify-between font-[Rubik]">
+        <div className="bg-[#05051f] h-full lg:h-screen">
+            <div className="p-3 w-full flex flex-col lg:flex-row justify-between font-[Rubik] gap-3">
 
-                <div className="flex flex-col">
+                <div className="flex flex-col max-w-[76rem] min-w-[24rem]">
 
 
 
                     <Welcome name={userName}></Welcome>
 
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row gap-2 columns-2">
                         <HeroCard title={"Expense"} trans={totalExpense} color={""}></HeroCard>
                         <HeroCard title={"Income"} trans={totalIncome} color={""}></HeroCard>
 
 
                     </div>
 
-                    <h3 className="font-normal mt-2 text-white opacity-35">Categories</h3>
+                    <h3 className="font-normal mt-4 text-white opacity-35 text-2xl">Categories</h3>
 
                     <div className="category-section space-x-2 flex overflow-x-auto overflow-hidden">
                         <AddButton link="/create/category" height={"12rem"}></AddButton>
@@ -193,7 +193,7 @@ const Home = () => {
                         ))}
                     </div>
 
-                    <h3 className="font-normal mt-2 text-white opacity-35">Credit</h3>
+                    <h3 className="font-normal mt-4 text-white opacity-35 text-2xl">Credit</h3>
 
                     <div className="credit-section space-x-2 flex overflow-x-auto overflow-hidden">
                         <AddButton link="/create/credit" height={"6rem"}></AddButton>
@@ -208,7 +208,7 @@ const Home = () => {
                         ))}
                     </div>
 
-                    <h3 className="font-normal mt-2 text-white opacity-35">Debit</h3>
+                    <h3 className="font-normal mt-4 text-white opacity-35 text-2xl">Debit</h3>
 
                     <div className="debit-section space-x-2 flex overflow-x-auto overflow-hidden">
                         <AddButton link="/create/debit" height={"6rem"}></AddButton>
@@ -223,25 +223,29 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="w-80 justify-self-end flex flex-col gap-2">
+                <div className="lg:w-72 lg:columns-1 columns-2 justify-self-end flex flex-col">
                     <h3 className="font-normal mt-2 text-white opacity-35">Expense History</h3>
-                    
-                    <AddButton link="/create/log" height={"3rem"}></AddButton>
 
 
-                    {logs.map((log) => (
-                        <LogCard
-                            key={log.id}
-                            link={`/book/view/${log.id}`}
-                            id={log.id}
-                            {...log.data()}
-                        />
-                    ))}
+                    <div className="flex flex-col gap-2" >
+
+                        <AddButton link="/create/log" height={"3rem"}></AddButton>
+
+
+                        {logs.map((log) => (
+                            <LogCard
+                                key={log.id}
+                                link={`/book/view/${log.id}`}
+                                id={log.id}
+                                {...log.data()}
+                            />
+                        ))}
+                    </div>
 
                 </div>
 
 
-                
+
             </div>
         </div>
     );

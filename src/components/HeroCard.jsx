@@ -53,7 +53,7 @@ const HeroCard = (props) => {
 
 
 
-        <div className="text-white w-36 flex flex-col justify-between px-2.5 py-1.5 rounded-xl font-[Rubik] box-border gap-1" style={{ backgroundColor: bgColor }}>
+        <div className="text-white w-[50%] sm:w-36 flex flex-col justify-between px-2.5 py-1.5 rounded-xl font-[Rubik] box-border gap-1" style={{ backgroundColor: bgColor }}>
 
             <span className="text-sm font-medium opacity-50" style={{ color: textColor }}>{props.title}</span>
 
