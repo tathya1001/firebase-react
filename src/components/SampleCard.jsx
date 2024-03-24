@@ -66,6 +66,9 @@ const SampleCard = (props) => {
     return (
 
 
+        (props.left != props.completed) &&
+
+
         <div className="h-24 bg-[#4F060E] flex px-3 py-2 rounded-[1rem] gap-2 font-[Rubik] box-border">
             <div className="right-side w-32 text-white text-[1.35rem] flex flex-col justify-between">
                 <span className="truncate">{props.name}</span>

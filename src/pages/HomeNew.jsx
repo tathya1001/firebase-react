@@ -163,60 +163,85 @@ const Home = () => {
     }, [firebase.user]);
 
     return (
-        <div className="bg-[#05051f] h-screen md:h-screen">
-            <div className="w-full py-3 flex flex-col container font-[Rubik]">
+        <div className="bg-[#05051f] h-full lg:h-screen">
+            <div className="p-8 w-full flex flex-col lg:flex-row justify-between font-[Rubik]">
 
-                <Welcome name={userName}></Welcome>
+                <div className="flex flex-col">
 
-                <div className="flex flex-row gap-2">
-                    <HeroCard title={"Expense"} trans={totalExpense} color={""}></HeroCard>
-                    <HeroCard title={"Income"} trans={totalIncome} color={""}></HeroCard>
-                    <AddButton link="/create/log"></AddButton>
 
+
+                    <Welcome name={userName}></Welcome>
+
+                    <div className="flex flex-row gap-2">
+                        <HeroCard title={"Expense"} trans={totalExpense} color={""}></HeroCard>
+                        <HeroCard title={"Income"} trans={totalIncome} color={""}></HeroCard>
+
+
+                    </div>
+
+                    <h3 className="font-normal mt-2 text-white opacity-35">Categories</h3>
+
+                    <div className="category-section space-x-2 flex overflow-x-auto overflow-hidden">
+                        <AddButton link="/create/category" height={"12rem"}></AddButton>
+                        {categories.map((cate) => (
+                            <CategoryCard
+                                key={cate.id}
+                                link={`/book/view/${cate.id}`}
+                                id={cate.id}
+                                {...cate.data()}
+                            />
+                        ))}
+                    </div>
+
+                    <h3 className="font-normal mt-2 text-white opacity-35">Credit</h3>
+
+                    <div className="credit-section space-x-2 flex overflow-x-auto overflow-hidden">
+                        <AddButton link="/create/credit" height={"6rem"}></AddButton>
+                        {credits.map((creds) => (
+
+                            <SampleCard
+                                key={creds.id}
+                                link={`/book/view/${creds.id}`}
+                                id={creds.id}
+                                {...creds.data()}
+                            />
+                        ))}
+                    </div>
+
+                    <h3 className="font-normal mt-2 text-white opacity-35">Debit</h3>
+
+                    <div className="debit-section space-x-2 flex overflow-x-auto overflow-hidden">
+                        <AddButton link="/create/debit" height={"6rem"}></AddButton>
+                        {credits.map((creds) => (
+                            <SampleCard
+                                key={creds.id}
+                                link={`/book/view/${creds.id}`}
+                                id={creds.id}
+                                {...creds.data()}
+                            />
+                        ))}
+                    </div>
                 </div>
 
-                <h3 className="font-normal mt-2 text-white">Categories</h3>
+                <div className="w-80 justify-self-end flex flex-col gap-2">
+                    <h3 className="font-normal mt-2 text-white opacity-35">Expense History</h3>
+                    
+                    <AddButton link="/create/log" height={"3rem"}></AddButton>
 
-                <div className="category-section space-x-2 flex overflow-x-auto overflow-hidden">
-                    <AddButton link="/create/category"></AddButton>
-                    {categories.map((cate) => (
-                        <CategoryCard
-                            key={cate.id}
-                            link={`/book/view/${cate.id}`}
-                            id={cate.id}
-                            {...cate.data()}
+
+                    {logs.map((log) => (
+                        <LogCard
+                            key={log.id}
+                            link={`/book/view/${log.id}`}
+                            id={log.id}
+                            {...log.data()}
                         />
                     ))}
+
                 </div>
 
-                <h3 className="font-normal mt-2 text-white">Credit</h3>
 
-                <div className="credit-section space-x-2 flex overflow-x-auto overflow-hidden">
-                    <AddButton link="/create/credit"></AddButton>
-                    {credits.map((creds) => (
-                        <SampleCard
-                            key={creds.id}
-                            link={`/book/view/${creds.id}`}
-                            id={creds.id}
-                            {...creds.data()}
-                        />
-                    ))}
-                </div>
-
-                <h3 className="font-normal mt-2 text-white">Debit</h3>
-
-                <div className="debit-section space-x-2 flex overflow-x-auto overflow-hidden">
-                    <AddButton link="/create/debit"></AddButton>
-                    {credits.map((creds) => (
-                        <SampleCard
-                            key={creds.id}
-                            link={`/book/view/${creds.id}`}
-                            id={creds.id}
-                            {...creds.data()}
-                        />
-                    ))}
-                </div>
-
+                
             </div>
         </div>
     );
