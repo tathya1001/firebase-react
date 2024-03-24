@@ -172,7 +172,7 @@ const Home = () => {
 
                     <Welcome name={userName}></Welcome>
 
-                    <div className="flex flex-row gap-2 columns-2">
+                    <div className="flex flex-row gap-2 columns-2 w-full pr-6 sm:pr-0">
                         <HeroCard title={"Expense"} trans={totalExpense} color={""}></HeroCard>
                         <HeroCard title={"Income"} trans={totalIncome} color={""}></HeroCard>
 
