@@ -164,8 +164,8 @@ const Home = () => {
 
     return (
         <>
-            <div className="bg-[#05051f] min-h-screen min-w-screen ">
-                <div className="p-3 flex flex-col lg:flex-row justify-between font-[Rubik] gap-3">
+            <div className="bg-[#05051f] min-h-screen min-w-screen">
+                <div className="p-4 flex flex-col lg:flex-row justify-between font-[Rubik] gap-3">
 
                     <div className="flex flex-col max-w-[76rem] min-w-[24rem]">
 
@@ -173,7 +173,7 @@ const Home = () => {
 
                         <Welcome name={userName}></Welcome>
 
-                        <div className="flex flex-row gap-2 columns-2 w-full">
+                        <div className="flex gap-2 columns-2 w-full flex-row">
                             <HeroCard title={"Expense"} trans={totalExpense} color={""}></HeroCard>
                             <HeroCard title={"Income"} trans={totalIncome} color={""}></HeroCard>
 
