@@ -164,8 +164,8 @@ const Home = () => {
 
     return (
         <>
-            <div className="bg-[#05051f] h-full lg:h-screen">
-                <div className="p-3 w-full flex flex-col lg:flex-row justify-between font-[Rubik] gap-3">
+            <div className="bg-[#05051f] min-h-screen min-w-screen ">
+                <div className="p-3 flex flex-col lg:flex-row justify-between font-[Rubik] gap-3">
 
                     <div className="flex flex-col max-w-[76rem] min-w-[24rem]">
 
@@ -173,7 +173,7 @@ const Home = () => {
 
                         <Welcome name={userName}></Welcome>
 
-                        <div className="flex flex-row gap-2 columns-2 w-full pr-6 sm:pr-0">
+                        <div className="flex flex-row gap-2 columns-2 w-full">
                             <HeroCard title={"Expense"} trans={totalExpense} color={""}></HeroCard>
                             <HeroCard title={"Income"} trans={totalIncome} color={""}></HeroCard>
 
@@ -224,6 +224,9 @@ const Home = () => {
                         </div>
                     </div>
 
+
+
+
                     <div className="lg:w-72 lg:columns-1 columns-2 justify-self-end flex flex-col">
                         <h3 className="font-normal mt-2 text-white opacity-35">Expense History</h3>
 
@@ -249,6 +252,7 @@ const Home = () => {
 
                 </div>
             </div>
+
         </>
     );
 };
