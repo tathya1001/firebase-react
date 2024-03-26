@@ -66,10 +66,10 @@ const CategoryCard = (props) => {
     return (
         <div className="min-h-48 min-w-48 bg-[#{colorCode}] flex flex-col justify-between px-3 py-3 rounded-[1rem] gap-2 font-[Rubik] box-border" style={{ backgroundColor: colorCode }}>
 
-            <div className="w-12">
+            {/* <div className="w-12"> */}
 
-                <CustomIcon icon={props.iconid}></CustomIcon>
-            </div>
+                <CustomIcon icon={props.iconid} height={"3rem"}></CustomIcon>
+            {/* </div> */}
 
 
             <div className="bottom-side flex flex-col justify-between text-white">
