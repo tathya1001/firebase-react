@@ -164,10 +164,10 @@ const Home = () => {
 
     return (
 
-        <div className="bg-[#05051f] min-h-screen min-w-screen p-3 md:p-4 flex flex-col lg:flex-row justify-between font-[Rubik] gap-3 w-screen">
+        <div className="bg-[#05051f] min-h-screen min-w-screen p-3 md:p-4 flex flex-col xl:flex-row justify-between font-[Rubik] gap-3 w-screen">
 
 
-            <div className="flex flex-col w-full lg:max-w-[80%]">
+            <div className="flex flex-col w-full xl:max-w-[80%]">
 
 
 
@@ -225,13 +225,14 @@ const Home = () => {
 
 
 
-            <div className="lg:w-72 columns-2 justify-self-end flex flex-col md:min-w-[15%]">
-                <h3 className="font-normal mt-2 text-white opacity-35">Expense History</h3>
+            <div className="columns-2 justify-self-end flex flex-col md:min-w-[15%] h-[45rem] gap-2">
 
+                <h3 className="font-normal text-white opacity-35 text-2xl">Expense History</h3>
 
-                <div className="flex flex-col gap-2" >
+                <AddButton link="/create/log" height={"3rem"}></AddButton>
 
-                    <AddButton link="/create/log" height={"3rem"}></AddButton>
+                <div className="flex flex-col gap-2 overflow-y-auto overflow-x-hidden overflow-hidden scrollbar-hide" >
+
 
 
                     {logs.map((log) => (
