@@ -11,6 +11,7 @@ import Login from "./pages/LoginNew.jsx";
 import List from "./pages/List.jsx";
 // import Home from './pages/Home.jsx'
 import Home from "./pages/HomeNew.jsx";
+import Settings from "./pages/Settings.jsx";
 import Credit from "./pages/Credit.jsx";
 import Debit from "./pages/Debit.jsx";
 // import Category from './pages/Category.jsx'
@@ -32,6 +33,7 @@ function App() {
       {/* <MyNavbar /> */}
       <Routes>
         <Route path="/" element={<Home></Home>} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/list" element={<List></List>} />

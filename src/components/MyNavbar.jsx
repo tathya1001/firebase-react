@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { useFirebase } from '../context/Firebase';
+import { useFirebase } from "../context/Firebase";
 
 import Button from "react-bootstrap/Button";
 
@@ -12,9 +12,9 @@ const MyNavbar = () => {
   const handleLogout = async () => {
     try {
       await firebase.logout();
-      console.log('User logged out successfully.');
+      console.log("User logged out successfully.");
     } catch (error) {
-      console.error('Error logging out:', error.message);
+      console.error("Error logging out:", error.message);
     }
   };
 
@@ -36,7 +36,6 @@ const MyNavbar = () => {
             </Button>
           </div>
         </Nav>
-
       </Container>
     </Navbar>
   );
