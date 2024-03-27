@@ -16,6 +16,7 @@ import { useFirebase } from "../context/Firebase";
 import HeroPills from "../components/HeroPillExpense";
 import HeroCard from "../components/HeroCard";
 import DebitCard from "../components/DebitCard";
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
   const firebase = useFirebase();
@@ -89,6 +90,10 @@ const Home = () => {
       fetchLogs();
     }
   }, [firebase.user]);
+
+  if (!firebase.user) {
+    return <Navigate to="/login" />; // Redirect the user to the login page
+  }
 
   //for horizontal scrolling
   useEffect(() => {

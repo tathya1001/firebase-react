@@ -55,13 +55,32 @@ export const FirebaseProvider = (props) => {
     });
   }, []);
 
-  const signupUserWithEmailAndPassword = (email, password) =>
-    createUserWithEmailAndPassword(firebaseAuth, email, password);
+  const signupUserWithEmailAndPassword = (email, password) => {
+    try {
+      createUserWithEmailAndPassword(firebaseAuth, email, password);
+      alert("Successfull Register");
+    } catch {
+      alert("Error while registering. Enter correct credentials.");
+    }
+  };
 
-  const signinUserWithEmailAndPassword = (email, password) =>
-    signInWithEmailAndPassword(firebaseAuth, email, password);
+  const signinUserWithEmailAndPassword = (email, password) => {
+    try {
+      signInWithEmailAndPassword(firebaseAuth, email, password);
+      alert("Successfull Login");
+    } catch {
+      alert("Error while login. Enter correct credentials.");
+    }
+  };
 
-  const signinWithGoogle = () => signInWithPopup(firebaseAuth, googleProvider);
+  const signinWithGoogle = () => {
+    try {
+      signInWithPopup(firebaseAuth, googleProvider);
+      alert("Successfull Login");
+    } catch {
+      alert("Error while login. Enter correct credentials.");
+    }
+  };
 
   const handleCreateNewListing = async (name) => {
     return await addDoc(collection(firestore, "users"), {

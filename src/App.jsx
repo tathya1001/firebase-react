@@ -16,6 +16,7 @@ import Credit from "./pages/Credit.jsx";
 import Debit from "./pages/Debit.jsx";
 // import Category from './pages/Category.jsx'
 import FormNew from "./pages/FormNew.jsx";
+import Accomodation from "./pages/Accomodation.jsx";
 
 //css
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/create/log" element={<Log />} />
         <Route path="/create/income" element={<Income />} />
         <Route path="/form" element={<FormNew />} />
+        <Route path="/accomodation" element={<Accomodation />} />
       </Routes>
     </>
   );
